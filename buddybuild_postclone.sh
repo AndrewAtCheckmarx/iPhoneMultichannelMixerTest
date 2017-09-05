@@ -80,6 +80,7 @@ cd $CX_CONSOLE_PATH
 echo ls of $CX_CONSOLE_PATH
 ls
 
+chmod +x runCxConsole.sh
 ./runCxConsole.sh
 
 mkdir  $BUDDYBUILD_WORKSPACE/$JOB_NAME
