@@ -73,9 +73,9 @@ echo $CX_RESULTS_PDF
 echo $CX_RESULTS_HTML
 echo $CX_CONSOLE_EXE
 
-dir
-cd CX_CONSOLE_PATH
-dir
+ls
+cd $CX_CONSOLE_PATH
+ls
 cd ..
 
 mkdir  $WORKSPACE/${JOB_NAME}/report
