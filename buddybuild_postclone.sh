@@ -74,24 +74,15 @@ echo $CX_RESULTS_HTML
 echo $CX_CONSOLE_EXE
 
 
-ls
-cd $CX_CONSOLE_PATH
-
-echo ls of $CX_CONSOLE_PATH
-ls
-
-chmod +x runCxConsole.sh
-./runCxConsole.sh
-
 mkdir  $BUDDYBUILD_WORKSPACE/$JOB_NAME
 mkdir  $BUDDYBUILD_WORKSPACE/$JOB_NAME/report
 
 echo XML Report $CX_RESULTS_XML
 
 # Scan the workspace, saving the results in xml and pdf
-echo $CX_CONSOLE_EXE Scan -CxServer $CX_HOST -CxUser $USERNAME -CxPassword $PASS -v -LocationType folder -locationPath $WORKSPACE/$JOB_NAME -reportPDF "$CX_RESULTS_PDF" -reportXML "$CX_RESULTS_XML" -ProjectName $CX_TEAM$PROJECT -Profile $PROFILE
+echo $CX_CONSOLE_EXE Scan -CxServer $CX_HOST -CxUser $USERNAME -CxPassword $PASS -v -LocationType folder -locationPath $BUDDYBUILD_WORKSPACE -reportPDF "$CX_RESULTS_PDF" -reportXML "$CX_RESULTS_XML" -ProjectName $CX_TEAM$PROJECT -Profile $PROFILE
 
-$CX_CONSOLE_EXE Scan -CxServer $CX_HOST -CxUser $USERNAME -CxPassword $PASS -v -LocationType folder -locationPath $WORKSPACE/$JOB_NAME -reportPDF "$CX_RESULTS_PDF" -reportXML "$CX_RESULTS_XML" -ProjectName $CX_TEAM$PROJECT -Profile $PROFILE 
+$CX_CONSOLE_EXE Scan -CxServer $CX_HOST -CxUser $USERNAME -CxPassword $PASS -v -LocationType folder -locationPath $BUDDYBUILD_WORKSPACE -reportPDF "$CX_RESULTS_PDF" -reportXML "$CX_RESULTS_XML" -ProjectName $CX_TEAM$PROJECT -Profile $PROFILE 
 
 [ -f $CX_RESULTS_XML ] && echo found || echo not found
 
