@@ -94,7 +94,7 @@ echo xslt $XSLT_EXE
 echo Chcking XSLT tool exists
 [ -f $XSLT_EXE ] && echo found || echo not found
 
-locate xsltproc
+brew install xsltproc
 
 # Process the xml results if they exist
 # [ -f $CX_RESULTS_XML ]
