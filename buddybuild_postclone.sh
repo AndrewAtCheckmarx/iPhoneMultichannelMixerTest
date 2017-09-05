@@ -7,14 +7,13 @@ CX_TEAM=CxServer\\SP\EMEA\\Checkmarx.com-UK
 
 
 # ###############################################
-CX_CONSOLE_PATH=./CxConsole
-CX_BUDDY_BUILD_PATH=./BuddyBuild
+CX_CONSOLE_PATH=$BUDDYBUILD_WORKSPACE/CxConsole
+CX_BUDDY_BUILD_PATH=$BUDDYBUILD_WORKSPACE
 
 # locate xsltproc
 XSLT_EXE=/usr/share/bash-completion/completions/xsltproc
 # ##############################################
 
-mkdir BuddyBuild
 
 # whitelist input - using $* could introduce command injection!!
 
@@ -56,13 +55,8 @@ while getopts "p:n:t:h:m:" arg; do
 	esac
 done
 
-
-
-if [ -z $WORKSPACE ]
-then
-    WORKSPACE=.
     JOB_NAME=$BUDDYBUILD_BUILD_ID
-fi
+
 
 echo WORKSPACE $BUDDYBUILD_WORKSPACE
 CX_RESULTS_XML=$WORKSPACE/${JOB_NAME}/report/${JOB_NAME}_CxResults.xml
@@ -79,19 +73,7 @@ echo $CX_RESULTS_PDF
 echo $CX_RESULTS_HTML
 echo $CX_CONSOLE_EXE
 
-if [ -f $CX_RESULTS_HTML ] 
-then
- rm  $CX_RESULTS_HTML
-fi
-if [ -f $CX_RESULTS_PDF ] 
-then
- rm  $CX_RESULTS_PDF
-fi
-if [ -f $CX_RESULTS_XML ] 
-then
-  rm  $CX_RESULTS_XML
-  echo "$CX_RESULTS_XML"
-fi
+
 
 mkdir  $WORKSPACE/${JOB_NAME}/report
 
@@ -128,5 +110,7 @@ then
 else
 	echo No XML ??
 fi
+
+
 
 
