@@ -111,7 +111,7 @@ then
     
     HIGH=`echo "$RES"   | awk '/High/ { print $2; }'`
     MEDIUM=`echo "$RES" | awk '/Medium/ { print $2; }'`
-    if [ $HIGH -gt $HIGH_VULNERABILITY_THRESHOLD ] | [ $MEDIUM -gt $MEDIUM_VULNERABILITY_THRESHOLD ]
+    if [ $HIGH > $HIGH_VULNERABILITY_THRESHOLD ] | [ $MEDIUM > $MEDIUM_VULNERABILITY_THRESHOLD ]
     then
         echo "Threshold exceeded"
 		exit 1
