@@ -96,7 +96,7 @@ echo Chcking XSLT tool exists
 
 # brew install xsltproc
 #rpm -Uv libxslt-1.1.20-1.i386.rpm
-brew install libsxlt
+brew install libxslt
 
 # Process the xml results if they exist
 # [ -f $CX_RESULTS_XML ]
