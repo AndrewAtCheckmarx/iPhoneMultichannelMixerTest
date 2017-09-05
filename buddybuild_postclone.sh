@@ -11,7 +11,7 @@ CX_CONSOLE_PATH=$BUDDYBUILD_WORKSPACE/CxConsole
 CX_BUDDY_BUILD_PATH=$BUDDYBUILD_WORKSPACE
 
 # locate xsltproc
-XSLT_EXE=/usr/share/bash-completion/completions/xsltproc
+XSLT_EXE=xsltproc
 # ##############################################
 
 
