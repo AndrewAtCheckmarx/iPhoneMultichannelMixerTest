@@ -91,16 +91,16 @@ echo Checking XML report exists
 echo xml $CX_RESULTS_XML
 echo xslt $XSLT_EXE 
 
-echo Chcking XSLT tool exists
-[ -f $XSLT_EXE ] && echo found || echo not found
+# echo Chcking XSLT tool exists
+# [ -f $XSLT_EXE ] && echo found || echo not found
 
 # brew install xsltproc
 #rpm -Uv libxslt-1.1.20-1.i386.rpm
-brew install libxslt
+#brew install libxslt
 
 # Process the xml results if they exist
 # [ -f $CX_RESULTS_XML ]
-if [ -f $CX_RESULTS_XML -a -x $XSLT_EXE ]
+if [ -f $CX_RESULTS_XML ]
 then
     echo found xml
     echo $XSLT_EXE  -o "$CX_RESULTS_HTML" "$XSLT_HTML_OUTPUT" "$CX_RESULTS_XML" 
