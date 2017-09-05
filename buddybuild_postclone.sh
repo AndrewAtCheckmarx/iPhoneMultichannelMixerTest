@@ -3,7 +3,7 @@ USERNAME="andrew.thompson@checkmarx.com"
 PASS="Barn4Max-"
 CX_HOST="https://cxprivatecloud.checkmarx.net"
 PRESET="All"
-CX_TEAM=CxServer\\SP\EMEA\\Checkmarx.com-UK
+CX_TEAM=CxServer\\SP\\EMEA\\Checkmarx.com-UK
 
 
 # ###############################################
