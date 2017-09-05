@@ -73,7 +73,10 @@ echo $CX_RESULTS_PDF
 echo $CX_RESULTS_HTML
 echo $CX_CONSOLE_EXE
 
-
+dir
+cd CX_CONSOLE_PATH
+dir
+cd ..
 
 mkdir  $WORKSPACE/${JOB_NAME}/report
 
@@ -88,6 +91,8 @@ $CX_CONSOLE_EXE Scan -CxServer $CX_HOST -CxUser $USERNAME -CxPassword $PASS -v -
 
 echo xml $CX_RESULTS_XML
 echo xslt $XSLT_EXE 
+
+
 
 # Process the xml results if they exist
 # [ -f $CX_RESULTS_XML ]
