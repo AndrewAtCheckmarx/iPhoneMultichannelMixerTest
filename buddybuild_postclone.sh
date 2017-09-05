@@ -85,11 +85,14 @@ echo $CX_CONSOLE_EXE Scan -CxServer $CX_HOST -CxUser $USERNAME -CxPassword $PASS
 
 $CX_CONSOLE_EXE Scan -CxServer $CX_HOST -CxUser $USERNAME -CxPassword $PASS -v -LocationType folder -locationPath $BUDDYBUILD_WORKSPACE -reportPDF "$CX_RESULTS_PDF" -reportXML "$CX_RESULTS_XML" -ProjectName $CX_TEAM$PROJECT -Profile $PROFILE 
 
+echo Checking XML report exists
 [ -f $CX_RESULTS_XML ] && echo found || echo not found
 
 echo xml $CX_RESULTS_XML
 echo xslt $XSLT_EXE 
 
+echo Chcking XSLT tool exists
+[ -f $XSLT_EXE ] && echo found || echo not found
 
 
 # Process the xml results if they exist
