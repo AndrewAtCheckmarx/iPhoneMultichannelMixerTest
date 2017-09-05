@@ -106,11 +106,17 @@ then
     echo $XSLT_EXE  -o "$CX_RESULTS_HTML" "$XSLT_HTML_OUTPUT" "$CX_RESULTS_XML" 
     $XSLT_EXE  -o "$CX_RESULTS_HTML" "$XSLT_HTML_OUTPUT" "$CX_RESULTS_XML" 
 
+    echo High Threshold    : $HIGH_VULNERABILITY_THRESHOLD
+    echo Medium Threshold  : $MEDIUM_VULNERABILITY_THRESHOLD
 
     RES=`$XSLT_EXE "$XSLT_VULN_COUNT" "$CX_RESULTS_XML"`
     
     HIGH=`echo "$RES"   | awk '/High/ { print $2; }'`
     MEDIUM=`echo "$RES" | awk '/Medium/ { print $2; }'`
+    
+    echo High Results      : $HIGH
+    echo Medium Results    : $MEDIUM
+    
     if [ $HIGH > $HIGH_VULNERABILITY_THRESHOLD ] | [ $MEDIUM > $MEDIUM_VULNERABILITY_THRESHOLD ]
     then
         echo "Threshold exceeded"
