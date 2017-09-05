@@ -116,6 +116,9 @@ then
         echo "Threshold exceeded"
 		exit 1
     fi
+    else
+    	echo "Threshold OK"
+		exit 0
 else
 	echo No XML ??
 fi
