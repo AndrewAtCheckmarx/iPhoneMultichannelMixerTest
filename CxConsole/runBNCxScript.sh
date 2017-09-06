@@ -117,15 +117,20 @@ then
     echo High Results      : $HIGH
     echo Medium Results    : $MEDIUM
     
-    if [ $HIGH -gt $HIGH_VULNERABILITY_THRESHOLD ] | [ $MEDIUM -gt $MEDIUM_VULNERABILITY_THRESHOLD ]
+    if test $HIGH -gt $HIGH_VULNERABILITY_THRESHOLD 
     then
         echo "Threshold exceeded"
 		exit 1
-    
-    else
-    	echo "Threshold OK"
-		exit 0
     fi
+    
+    if test $MEDIUM -gt $MEDIUM_VULNERABILITY_THRESHOLD 
+    then
+        echo "Threshold exceeded"
+		exit 1
+    fi
+       
 else
 	echo No XML ??
 fi
+    	echo "Threshold OK"
+		exit 0
