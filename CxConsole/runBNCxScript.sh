@@ -81,9 +81,9 @@ mkdir  $BUDDYBUILD_WORKSPACE/$JOB_NAME/report
 echo XML Report $CX_RESULTS_XML
 
 # Scan the workspace, saving the results in xml and pdf
-echo $CX_CONSOLE_EXE Scan -CxServer $CX_HOST -CxUser $USERNAME -CxPassword $PASS -v -LocationType folder -locationPath $BUDDYBUILD_WORKSPACE -reportPDF "$CX_RESULTS_PDF" -reportXML "$CX_RESULTS_XML" -ProjectName "$CX_TEAM//$PROJECT" -Profile "$PROFILE"
+echo $CX_CONSOLE_EXE Scan -CxServer $CX_HOST -CxUser $USERNAME -CxPassword $PASS -v -LocationType folder -locationPath $BUDDYBUILD_WORKSPACE -reportPDF "$CX_RESULTS_PDF" -reportXML "$CX_RESULTS_XML" -ProjectName "$CX_TEAM//$PROJECT" -Preset "$PROFILE"
 
-$CX_CONSOLE_EXE Scan -CxServer $CX_HOST -CxUser $USERNAME -CxPassword $PASS -v -LocationType folder -locationPath $BUDDYBUILD_WORKSPACE -reportPDF "$CX_RESULTS_PDF" -reportXML "$CX_RESULTS_XML" -ProjectName "$CX_TEAM//$PROJECT" -Profile "$PROFILE"
+$CX_CONSOLE_EXE Scan -CxServer $CX_HOST -CxUser $USERNAME -CxPassword $PASS -v -LocationType folder -locationPath $BUDDYBUILD_WORKSPACE -reportPDF "$CX_RESULTS_PDF" -reportXML "$CX_RESULTS_XML" -ProjectName "$CX_TEAM//$PROJECT" -Preset "$PROFILE"
 
 echo Checking XML report exists
 [ -f $CX_RESULTS_XML ] && echo found || echo not found
@@ -117,7 +117,7 @@ then
     echo High Results      : $HIGH
     echo Medium Results    : $MEDIUM
     
-    if [ $HIGH > $HIGH_VULNERABILITY_THRESHOLD ] | [ $MEDIUM > $MEDIUM_VULNERABILITY_THRESHOLD ]
+    if [ $HIGH -gt $HIGH_VULNERABILITY_THRESHOLD ] | [ $MEDIUM -gt $MEDIUM_VULNERABILITY_THRESHOLD ]
     then
         echo "Threshold exceeded"
 		exit 1
