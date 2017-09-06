@@ -20,6 +20,9 @@ XSLT_EXE=xsltproc
 HIGH_VULNERABILITY_THRESHOLD=0
 MEDIUM_VULNERABILITY_THRESHOLD=0
 
+HIGH=0
+MEDIUM=0
+
 while getopts "p:n:t:h:m:" arg; do
 	case $arg in
 		p)
